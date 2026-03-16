@@ -5,19 +5,27 @@ This repository provides an Excel implementation of artificial neural network (A
 The models are presented in the article:
 
 Formoso, I.
-**Optimizing Melt-Blowing Nozzles for Small-Diameter Fibers: An Artificial Neural Network Framework**.
-*Fibers and Polymers*.
+**Optimizing Melt-Blowing Nozzles for Small-Diameter Fibers: An Artificial Neural Network Framework**
+*Fibers and Polymers*
 https://doi.org/10.1007/s12221-025-00919-y
 
 The spreadsheet allows users to evaluate the trained neural networks and estimate fiber attenuation for different combinations of operating conditions and nozzle geometries.
 
 ---
 
-## Overview
+# Melt-blowing nozzle geometry
+
+The melt-blowing nozzle configuration and the main geometric parameters used to construct the dimensionless variables are illustrated below.
+
+![Melt-blowing nozzle geometry](figures/meltblowing_nozzle_geometry.png)
+
+---
+
+# Overview
 
 The melt-blowing process produces micro- and nanofibers by attenuating a molten polymer stream using high-velocity hot air. Predicting the resulting fiber diameter requires capturing the complex interaction between operating conditions and nozzle geometry.
 
-To address this challenge, multilayer perceptron (MLP) neural networks were trained using dimensionless parameters that describe the governing physical mechanisms of the process.
+To address this challenge, multilayer perceptron (MLP) neural networks were trained using dimensionless parameters that represent the governing physical mechanisms of the process.
 
 This repository provides a transparent implementation of the trained ANN models, including:
 
@@ -26,33 +34,41 @@ This repository provides a transparent implementation of the trained ANN models,
 * activation functions
 * forward propagation calculations
 
-This enables the models to be reproduced or implemented in other computational environments.
+This allows the models to be reproduced or implemented in other computational environments.
 
 ---
 
-## Repository contents
+# Repository contents
 
 The Excel spreadsheet contains two trained ANN models:
 
-**Net_1 — HMA model**
+### Net_1 — HMA model
 
-Predicts fiber attenuation in hot-melt adhesive (HMA) melt-blowing systems.
+Predicts fiber attenuation in **hot-melt adhesive (HMA)** melt-blowing systems.
 
 Architecture:
 
 4 → 1 → 1 → 1
 Activation functions: tansig → tansig → purelin
 
-**Net_2 — PP model**
+![Net\_1 architecture](figures/Net1_model_architecture.png)
 
-Predicts fiber attenuation in polypropylene (PP) melt-blowing systems.
+---
+
+### Net_2 — PP model
+
+Predicts fiber attenuation in **polypropylene (PP)** melt-blowing systems.
 
 Architecture:
 
 4 → 2 → 1
 Activation functions: tansig → purelin
 
-Both models predict the **fiber drawing ratio**:
+![Net\_2 architecture](figures/Net2_model_architecture.png)
+
+---
+
+Both models predict the **fiber drawing ratio**
 
 d′ = d_f / L_Rf
 
@@ -60,23 +76,23 @@ which represents the ratio between the final fiber diameter and the polymer exit
 
 ---
 
-## Input variables
+# Input variables
 
 The ANN models use four dimensionless parameters:
 
-**m′ — Air–polymer flux ratio**
+### m′ — Air–polymer flux ratio
 
-m′ = ṁa / ṁf
+m′ = ṁ_a / ṁ_f
 
-**T′ — Temperature ratio**
+### T′ — Temperature ratio
 
-T′ = (Tf + Ta) / (2 Tamb)
+T′ = (T_f + T_a) / (2 T_amb)
 
-**g₁ — Dimensionless air impact point**
+### g₁ — Dimensionless air impact point
 
 g₁ = tan(ψ) L_Rf / D
 
-**g₂ — Polymer-to-air area ratio**
+### g₂ — Polymer-to-air area ratio
 
 g₂ = (L_Rf / L_R)² (1 / N_a/f)
 
@@ -84,7 +100,7 @@ These parameters capture the combined effects of operating conditions and nozzle
 
 ---
 
-## Using the spreadsheet
+# Using the spreadsheet
 
 1. Open the Excel file.
 
@@ -105,7 +121,7 @@ These parameters capture the combined effects of operating conditions and nozzle
 
 ---
 
-## Spreadsheet structure
+# Spreadsheet structure
 
 The Excel file contains the following sheets:
 
@@ -126,7 +142,7 @@ Implementation of the PP ANN model.
 
 ---
 
-## Reproducibility
+# Reproducibility
 
 The spreadsheet provides a fully transparent implementation of the trained neural networks. All elements required to reproduce the models are explicitly included:
 
@@ -140,23 +156,25 @@ This allows researchers to implement the models in other environments such as MA
 
 ---
 
-## Author
+# Author
 
 Ignacio Formoso
 
 ---
 
-## Citation
+# Citation
 
 If you use this model in academic work, please cite the associated article:
 
 Formoso, I.
-Optimizing Melt-Blowing Nozzles for Small-Diameter Fibers: An Artificial Neural Network Framework.
-*Fibers and Polymers*.
+Optimizing Melt-Blowing Nozzles for Small-Diameter Fibers: An Artificial Neural Network Framework
+*Fibers and Polymers*
 https://doi.org/10.1007/s12221-025-00919-y
 
 ---
 
-## License
+# License
 
 This repository is released under the MIT License.
+
+---
